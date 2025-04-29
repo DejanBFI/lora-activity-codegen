@@ -10,17 +10,18 @@ import (
 )
 
 func main() {
-	schemaName := "mobile-phone-usage-age-v1"
-	processAndActivityName := "check_phone_usage_age"
+	schemaName := ""
+	processAndActivityName := "set_survey_data_by_assignment_rule"
 
 	readSet := []string{
-		"DocCustomerKtpNik",
-		"DocCustomerContactMobileNumber",
+		"DocLoanStructureRiskLevel",
+		"DocLoanStructureProductId",
 	}
 
 	writeSet := []string{
-		"DocProcessPhoneCheckResultIsVerifiedPhoneNikUsageAge",
-		"DocProcessPhoneCheckResultUsageAge",
+		"DocSurveyAppointmentSurveyType",
+		"DocSurveyAppointmentSurveyLocationType",
+		"DocSurveyAppointmentSurveyResourceType",
 	}
 
 	// DO NOT EDIT BELOW THIS LINE

@@ -49,8 +49,13 @@ var (
 func GenerateBoilerplate(out *jen.File, schemaName, processAndActivityName string, readSet, writeSet []string) {
 	out.ImportNames(importNames)
 
+	var schemaDef *jen.Statement
+	if schemaName != "" {
+		schemaDef = schemaVar().Op("=").Lit("json-schema/proxy/inner/" + schemaName + ".schema.json")
+	}
+
 	out.Const().Defs(
-		schemaVar().Op("=").Lit("json-schema/proxy/inner/"+schemaName+".schema.json"),
+		schemaDef,
 		processAndActivityNameVar().Op("=").Lit(processAndActivityName),
 	)
 
